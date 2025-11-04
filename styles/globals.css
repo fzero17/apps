@@ -1,37 +1,113 @@
 html,body,#__next{height:100%}
-body{font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;color:#0f172a;background:#f7fafb}
+body{font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;color:#1d1d1f;background:#fbfbfd;margin:0;padding:0;-webkit-font-smoothing:antialiased}
 .container{max-width:1000px;margin:0 auto;padding:0 18px}
-.page-title{margin-top:28px;font-size:32px;margin:28px 0}
+.page-title{font-size:32px;margin:28px 0;color:#1e40af}
 /* basic resets for images */
 img{max-width:100%;display:block}
 
+/* Layout structure */
+.layout{min-height:100vh;display:flex;flex-direction:column}
+.main-content{flex:1}
+
 /* Layout styles */
-.site-header{background:#fff;padding:18px 0;border-bottom:1px solid #eee}
+.site-header{padding:18px 0;border-bottom:1px solid rgba(59,130,246,0.1)}
 .site-header .container{display:flex;justify-content:flex-end}
 .nav{display:flex;gap:18px;align-items:center}
-.nav a{color:#4b5563;text-decoration:none}
-.nav a.active{color:#1f6feb}
-.site-footer{padding:40px 0;color:#718096;text-align:center;border-top:1px solid #eee;margin-top:60px}
+.nav a{color:#3b82f6;text-decoration:none;font-weight:500;transition:all 0.3s ease}
+.nav a.active{color:#1d4ed8;font-weight:600}
+.nav a:hover{color:#2563eb}
+.site-footer{padding:20px 0;color:#3b82f6;text-align:center;border-top:1px solid rgba(59,130,246,0.1);margin-top:auto}
 
-/* Home page styles */
-.lead{color:#6b7280;margin-bottom:16px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+/* Home page styles - Apple HIG inspired */
+.hero-section{
+  text-align:center;
+  padding:64px 0;
+  max-width:980px;
+  margin:0 auto;
+}
+.hero-title{
+  font-size:48px;
+  font-weight:600;
+  color:#1d1d1f;
+  margin:0 0 16px;
+  letter-spacing:-0.03em;
+  line-height:1.08;
+}
+.hero-subtitle{
+  font-size:21px;
+  font-weight:400;
+  color:#86868b;
+  margin:0 0 48px;
+  line-height:1.38;
+  max-width:640px;
+  margin-left:auto;
+  margin-right:auto;
+}
+.apps-section{
+  padding:48px 0 96px;
+  background:rgba(247,247,247,0.8);
+  border-radius:18px;
+  margin:0 18px;
+}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:32px;
+  max-width:900px;
+  margin:0 auto;
+  padding:0 32px;
+}
 
-/* AppCard styles */
-.card{display:block;background:#fff;border-radius:8px;padding:16px;border:1px solid #eef2f6;color:inherit;text-decoration:none}
-.card .art img{width:100%;height:140px;object-fit:cover;border-radius:6px}
-.card h3{font-size:14px;margin:10px 0 6px}
-.card .short{font-size:12px;color:#64748b}
+/* AppCard styles - Apple HIG inspired */
+.card{
+  display:block;
+  background:#ffffff;
+  border-radius:18px;
+  padding:24px;
+  border:none;
+  color:inherit;
+  text-decoration:none;
+  transition:all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow:0 4px 16px rgba(0,0,0,0.04);
+}
+.card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 12px 32px rgba(0,0,0,0.08);
+}
+.card .art img{
+  width:100%;
+  height:160px;
+  object-fit:cover;
+  border-radius:12px;
+  margin-bottom:16px;
+}
+.card h3{
+  font-size:17px;
+  font-weight:600;
+  margin:0 0 8px;
+  color:#1d1d1f;
+  line-height:1.29;
+}
+.card .short{
+  font-size:15px;
+  color:#86868b;
+  line-height:1.47;
+  margin:0;
+}
 
 /* App detail styles */
-.detail-head{display:flex;gap:18px;align-items:center;margin:26px 0}
-.detail-head .icon{width:84px;height:84px;border-radius:12px}
-.detail-head .short{color:#6b7280}
+.detail-head{display:flex;gap:18px;align-items:center;margin:26px 0;background:linear-gradient(135deg, rgba(255,255,255,0.9), rgba(240,249,255,0.7));padding:20px;border-radius:15px;border:1px solid rgba(59,130,246,0.15)}
+.detail-head .icon{width:84px;height:84px;border-radius:12px;box-shadow:0 4px 12px rgba(59,130,246,0.1)}
+.detail-head .short{color:#3b82f6}
 .buttons{margin-top:10px;display:flex;gap:10px}
-.primary{background:#1f6feb;color:#fff;padding:8px 12px;border-radius:999px;border:0;cursor:pointer}
-.muted{background:#eef2f6;padding:8px 12px;border-radius:999px;border:0;cursor:pointer}
-.shots{display:flex;gap:12px;margin:12px 0;overflow-x:auto}
-.shots img{width:200px;height:120px;object-fit:cover;border-radius:8px;flex-shrink:0}
-.desc{color:#374151;line-height:1.6}
-.info td{padding:6px 12px;border-bottom:1px solid #f1f5f9}
-.rating{font-size:18px;margin:10px 0}
+.primary{background:linear-gradient(135deg, #3b82f6, #1d4ed8);color:#fff;padding:8px 12px;border-radius:999px;border:0;cursor:pointer;transition:all 0.3s ease;box-shadow:0 3px 10px rgba(59,130,246,0.2)}
+.primary:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(59,130,246,0.3)}
+.muted{background:linear-gradient(135deg, rgba(240,249,255,0.9), rgba(219,234,254,0.6));color:#1e40af;padding:8px 12px;border-radius:999px;border:1px solid rgba(59,130,246,0.2);cursor:pointer;transition:all 0.3s ease}
+.muted:hover{background:linear-gradient(135deg, rgba(219,234,254,0.8), rgba(191,219,254,0.7))}
+.shots{display:flex;gap:12px;margin:12px 0;overflow-x:auto;padding:8px 0}
+.shots img{width:200px;height:120px;object-fit:cover;border-radius:8px;flex-shrink:0;border:2px solid rgba(59,130,246,0.15);transition:all 0.3s ease}
+.shots img:hover{transform:scale(1.05);border-color:rgba(59,130,246,0.3)}
+.desc{color:#1e40af;line-height:1.6;background:linear-gradient(135deg, rgba(255,255,255,0.8), rgba(240,249,255,0.5));padding:16px;border-radius:10px;border:1px solid rgba(59,130,246,0.1)}
+.info{background:linear-gradient(135deg, rgba(255,255,255,0.9), rgba(240,249,255,0.6));border-radius:10px;overflow:hidden;border:1px solid rgba(59,130,246,0.15)}
+.info td{padding:6px 12px;border-bottom:1px solid rgba(59,130,246,0.08);color:#1e40af}
+.rating{font-size:18px;margin:10px 0;color:#1d4ed8;font-weight:600}
