@@ -1,0 +1,37 @@
+html,body,#__next{height:100%}
+body{font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;color:#0f172a;background:#f7fafb}
+.container{max-width:1000px;margin:0 auto;padding:0 18px}
+.page-title{margin-top:28px;font-size:32px;margin:28px 0}
+/* basic resets for images */
+img{max-width:100%;display:block}
+
+/* Layout styles */
+.site-header{background:#fff;padding:18px 0;border-bottom:1px solid #eee}
+.site-header .container{display:flex;justify-content:flex-end}
+.nav{display:flex;gap:18px;align-items:center}
+.nav a{color:#4b5563;text-decoration:none}
+.nav a.active{color:#1f6feb}
+.site-footer{padding:40px 0;color:#718096;text-align:center;border-top:1px solid #eee;margin-top:60px}
+
+/* Home page styles */
+.lead{color:#6b7280;margin-bottom:16px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+
+/* AppCard styles */
+.card{display:block;background:#fff;border-radius:8px;padding:16px;border:1px solid #eef2f6;color:inherit;text-decoration:none}
+.card .art img{width:100%;height:140px;object-fit:cover;border-radius:6px}
+.card h3{font-size:14px;margin:10px 0 6px}
+.card .short{font-size:12px;color:#64748b}
+
+/* App detail styles */
+.detail-head{display:flex;gap:18px;align-items:center;margin:26px 0}
+.detail-head .icon{width:84px;height:84px;border-radius:12px}
+.detail-head .short{color:#6b7280}
+.buttons{margin-top:10px;display:flex;gap:10px}
+.primary{background:#1f6feb;color:#fff;padding:8px 12px;border-radius:999px;border:0;cursor:pointer}
+.muted{background:#eef2f6;padding:8px 12px;border-radius:999px;border:0;cursor:pointer}
+.shots{display:flex;gap:12px;margin:12px 0;overflow-x:auto}
+.shots img{width:200px;height:120px;object-fit:cover;border-radius:8px;flex-shrink:0}
+.desc{color:#374151;line-height:1.6}
+.info td{padding:6px 12px;border-bottom:1px solid #f1f5f9}
+.rating{font-size:18px;margin:10px 0}
