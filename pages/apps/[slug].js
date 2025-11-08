@@ -44,15 +44,35 @@ export default function AppDetail(){
                 ))}
               </div>
               <div className="hero-ctas">
-                {heroCtas.map((cta, index) => (
-                  <a
-                    key={`${cta.label}-${index}`}
-                    href={cta.href || '#'}
-                    className={cta.kind === 'ghost' ? 'cta ghost' : 'cta primary'}
-                  >
-                    {cta.label}
-                  </a>
-                ))}
+                {heroCtas.map((cta, index) => {
+                  const href = cta.href || '#';
+                  const isAppStore = href.includes('apps.apple.com');
+                  const hasImage = Boolean(cta.image);
+                  const classNames = ['cta'];
+                  if (hasImage) {
+                    classNames.push('appstore-badge');
+                  } else if (cta.kind === 'ghost') {
+                    classNames.push('ghost');
+                  } else {
+                    classNames.push('primary');
+                  }
+
+                  return (
+                    <a
+                      key={`${cta.label}-${index}`}
+                      href={href}
+                      className={classNames.join(' ')}
+                      target={isAppStore ? '_blank' : undefined}
+                      rel={isAppStore ? 'noopener noreferrer' : undefined}
+                    >
+                      {hasImage ? (
+                        <img src={cta.image} alt={cta.alt || cta.label} />
+                      ) : (
+                        cta.label
+                      )}
+                    </a>
+                  );
+                })}
               </div>
             </div>
             <div className="hero-visual">
@@ -190,6 +210,14 @@ export default function AppDetail(){
               </div>
             </section>
           )}
+
+          <section className="section-block privacy-cta">
+            <div className="section-header">
+              <h2>Privacy Policy</h2>
+              <p>Learn how we handle data for this app.</p>
+            </div>
+            <a className="cta primary" href={`/apps/${app.slug}/privacy`}>View Privacy Details</a>
+          </section>
         </div>
       </div>
     </div>

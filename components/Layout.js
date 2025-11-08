@@ -1,12 +1,16 @@
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 export default function Layout({ children }) {
+  const router = useRouter();
+  const { pathname } = router;
+
   return (
     <div className="layout">
       <header className="site-header">
         <div className="container">
           <nav className="nav">
-            <Link href="/" className="active">My Apps</Link>
+            <Link href="/" className={pathname === '/' ? 'active' : ''}>My Apps</Link>
           </nav>
         </div>
       </header>
