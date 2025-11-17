@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 export default function Layout({ children }) {
   const router = useRouter();
   const { pathname } = router;
+  const isDetailRoute = pathname?.startsWith('/apps/');
 
   return (
     <div className="layout">
@@ -14,7 +15,7 @@ export default function Layout({ children }) {
           </nav>
         </div>
       </header>
-      <main className="container main-content">{children}</main>
+      <main className={`${isDetailRoute ? 'detail-main' : 'container'} main-content`}>{children}</main>
       <footer className="site-footer">
         <div className="container">© {new Date().getFullYear()} Fzero. All rights reserved.</div>
       </footer>
