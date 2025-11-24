@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 export default function Layout({ children }) {
   const router = useRouter();
   const { pathname } = router;
-  const isDetailRoute = pathname?.startsWith('/apps/');
+  const isDetailRoute = pathname === '/[slug]' || pathname?.startsWith('/[slug]/') || pathname?.startsWith('/apps/');
 
   return (
     <div className="layout">

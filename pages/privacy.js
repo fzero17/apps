@@ -46,7 +46,7 @@ export default function Privacy(){
                 {!policy && (
                   <p className="privacy-overview">Detailed privacy information for this app is coming soon.</p>
                 )}
-                <a className="cta primary" href={`/apps/${app.slug}/privacy`}>View full privacy policy</a>
+                <a className="cta primary" href={`/${app.slug}/privacy`}>View full privacy policy</a>
               </article>
             );
           })}

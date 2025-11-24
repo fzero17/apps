@@ -15,4 +15,6 @@ npm run dev
 
 页面：
 - `/` - 应用列表（cards 网格）
-- `/apps/[slug]` - 应用详情（头部、截图、描述、更新日志、评分、信息）
+- `/[slug]` - 应用详情（头部、截图、描述、更新日志、评分、信息）
+- `/[slug]/privacy` - 每个应用的隐私策略
+- `/[slug]/terms` - 每个应用的 Terms of Use / EULA

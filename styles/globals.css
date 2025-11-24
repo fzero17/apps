@@ -129,6 +129,8 @@ img{max-width:100%;display:block}
 .faq-item p{margin:16px 0 0;color:#475569;font-size:15px;line-height:1.6}
 .privacy-cta{align-items:flex-start}
 .privacy-cta .cta{margin-top:12px}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px}
+.privacy-cta .cta-row .cta{margin-top:0}
 
 @media(max-width:720px){
   .detail-page{padding:48px 16px 72px}

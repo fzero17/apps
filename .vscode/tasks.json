@@ -1,0 +1,22 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "remove tmp",
+			"type": "shell",
+			"command": "rm",
+			"args": [
+				"tmp.txt"
+			]
+		},
+		{
+			"label": "remove tmp via bash",
+			"type": "shell",
+			"command": "bash",
+			"args": [
+				"-lc",
+				"rm tmp.txt"
+			]
+		}
+	]
+}
