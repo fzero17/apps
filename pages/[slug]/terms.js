@@ -36,7 +36,7 @@ export default function AppTerms(){
       <div className="privacy-inner">
         <section className="privacy-hero">
           <h1>{app.title} Terms of Use</h1>
-          <p>Review the subscription details, renewal rules, and usage guidelines required for downloading {app.title} from the Mac App Store.</p>
+          <p>Review the subscription details, renewal rules, and usage guidelines required for downloading {app.title} from the App Store.</p>
         </section>
 
         <article className="privacy-card">
@@ -48,7 +48,7 @@ export default function AppTerms(){
                 {appTerms?.updated && <p className="privacy-updated">Last updated {appTerms.updated}</p>}
               </div>
             </div>
-            <span className="privacy-platform">macOS</span>
+            <span className="privacy-platform">{app.platform || 'macOS'}</span>
           </header>
 
           {appTerms ? (

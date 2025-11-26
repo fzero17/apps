@@ -177,7 +177,7 @@ img{max-width:100%;display:block}
 .privacy-card-brand img{width:72px;height:72px;border-radius:18px;background:#ffffff}
 .privacy-card-brand h2{margin:0;font-size:26px;color:#0f172a}
 .privacy-updated{margin:4px 0 0;font-size:14px;color:#64748b}
-.privacy-platform{font-size:13px;text-transform:uppercase;letter-spacing:0.18em;color:#0369a1;background:rgba(14,165,233,0.14);border-radius:999px;padding:8px 16px}
+.privacy-platform{font-size:13px;letter-spacing:0.18em;color:#0369a1;background:rgba(14,165,233,0.14);border-radius:999px;padding:8px 16px}
 .privacy-overview{margin:0;color:#334155;font-size:17px;line-height:1.7}
 .privacy-sections{display:flex;flex-direction:column;gap:22px}
 .privacy-section h3{margin:0 0 8px;font-size:20px;color:#0f172a}
@@ -203,10 +203,13 @@ img{max-width:100%;display:block}
 
 /* AppCard styles - Apple HIG inspired */
 .card{
-  display:block;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
   background:#ffffff;
   border-radius:18px;
-  padding:24px;
+  padding:32px 24px;
   color:inherit;
   text-decoration:none;
   transition:transform 0.25s ease, background 0.25s ease;
@@ -215,15 +218,17 @@ img{max-width:100%;display:block}
   transform:translateY(-4px);
   background:rgba(15,23,42,0.04);
 }
-.card .art img{
-  width:100%;
-  height:160px;
+.card .app-icon{
+  margin-bottom:20px;
+}
+.card .app-icon img{
+  width:112px;
+  height:112px;
   object-fit:cover;
-  border-radius:12px;
-  margin-bottom:16px;
+  border-radius:26px;
 }
 .card h3{
-  font-size:17px;
+  font-size:19px;
   font-weight:600;
   margin:0 0 8px;
   color:#1d1d1f;
