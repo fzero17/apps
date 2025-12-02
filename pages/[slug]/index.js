@@ -1,8 +1,10 @@
+import { useState } from 'react';
 import { useRouter } from 'next/router';
 import { apps } from '../../lib/data';
 
 export default function AppDetail(){
   const router = useRouter();
+  const [previewImage, setPreviewImage] = useState(null);
   const { slug } = router.query;
   const app = apps.find(a => a.slug === slug) || apps[0];
 
@@ -24,7 +26,7 @@ export default function AppDetail(){
   const faqItems = Array.isArray(app.faq) ? app.faq : [];
 
   return (
-    <div className="detail-page">
+    <div className={`detail-page ${app.platform === 'iOS' ? 'ios-app' : ''}`}>
       <div className="detail-inner">
         <section className="app-hero">
           <div className="hero-shell">
@@ -76,7 +78,7 @@ export default function AppDetail(){
               </div>
             </div>
             <div className="hero-visual">
-              <div className="hero-media">
+              <div className="hero-media" onClick={() => setPreviewImage(app.screenshots?.[0])}>
                 <img src={app.screenshots?.[0]} alt={`${app.title} preview`} />
               </div>
             </div>
@@ -105,7 +107,7 @@ export default function AppDetail(){
                     )}
                   </div>
                   {section.image && (
-                    <div className="feature-media">
+                    <div className="feature-media" onClick={() => setPreviewImage(section.image)}>
                       <div className="media-frame">
                         <img src={section.image} alt={section.imageAlt || section.title} />
                       </div>
@@ -146,7 +148,7 @@ export default function AppDetail(){
               </div>
               <div className="media-gallery">
                 {app.screenshots.map((shot, index) => (
-                  <figure className="gallery-item" key={shot || index}>
+                  <figure className="gallery-item" key={shot || index} onClick={() => setPreviewImage(shot)}>
                     <img src={shot} alt={`${app.title} screenshot ${index + 1}`} />
                   </figure>
                 ))}
@@ -223,6 +225,14 @@ export default function AppDetail(){
           </section>
         </div>
       </div>
+
+      {previewImage && (
+        <div className="image-preview-overlay" onClick={() => setPreviewImage(null)}>
+          <div className="image-preview-content">
+            <img src={previewImage} alt="Preview" />
+          </div>
+        </div>
+      )}
     </div>
   )
 }
