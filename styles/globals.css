@@ -241,6 +241,21 @@ img{max-width:100%;display:block}
   margin:0;
 }
 
+.badge.platform{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:4px 10px;
+  border-radius:999px;
+  background:rgba(2,132,199,0.12);
+  color:#0369a1;
+  font-size:12px;
+  font-weight:600;
+  letter-spacing:0.04em;
+  text-transform:uppercase;
+  margin-bottom:10px;
+}
+
 /* iOS App specific styles for portrait screenshots */
 .ios-app .hero-media {
   max-width: 280px;
