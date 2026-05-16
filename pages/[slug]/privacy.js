@@ -24,6 +24,8 @@ export default function AppPrivacy(){
     );
   }
 
+  const supportEmail = policy?.supportEmail || app.info?.supportEmail || 'fzero17@qq.com';
+
   return (
     <div className="privacy-page">
       <Head>
@@ -69,7 +71,7 @@ export default function AppPrivacy(){
 
         <footer className="privacy-footnote">
           <p>
-            Questions or feedback about privacy? Email <a href="mailto:fzero17@qq.com">fzero17@qq.com</a>.
+            Questions or feedback about privacy? Email <a href={`mailto:${supportEmail}`}>{supportEmail}</a>.
             {' '}Return to <Link href={`/${app.slug}`}>the {app.title} overview</Link>, review the <Link href={`/${app.slug}/terms`}>Terms of Use</Link>, or browse <Link href="/privacy">all app policies</Link>.
           </p>
         </footer>

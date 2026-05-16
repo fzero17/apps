@@ -24,19 +24,21 @@ export default function AppTerms(){
     );
   }
 
+  const supportEmail = appTerms?.supportEmail || app.info?.supportEmail || 'fzero17@qq.com';
+
   return (
     <div className="privacy-page">
       <Head>
         <title>{`${app.title} · Terms of Use`}</title>
         <meta
           name="description"
-          content={`Terms of Use, subscription details, and auto-renewal information for ${app.title}.`}
+          content={`Terms of Use, purchase details, and usage guidelines for ${app.title}.`}
         />
       </Head>
       <div className="privacy-inner">
         <section className="privacy-hero">
           <h1>{app.title} Terms of Use</h1>
-          <p>Review the subscription details, renewal rules, and usage guidelines required for downloading {app.title} from the App Store.</p>
+          <p>Review the purchase details, usage guidelines, and App Store terms required for downloading {app.title}.</p>
         </section>
 
         <article className="privacy-card">
@@ -90,7 +92,7 @@ export default function AppTerms(){
 
         <footer className="privacy-footnote">
           <p>
-            Questions about these terms? Email <a href="mailto:fzero17@qq.com">fzero17@qq.com</a>.
+            Questions about these terms? Email <a href={`mailto:${supportEmail}`}>{supportEmail}</a>.
             {' '}Return to <Link href={`/${app.slug}`}>the {app.title} overview</Link> · Review the <Link href={`/${app.slug}/privacy`}>Privacy Policy</Link>.
           </p>
         </footer>
