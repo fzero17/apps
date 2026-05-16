@@ -1,15 +1,9 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 import { apps } from '../../lib/data';
 import { privacyPolicies } from '../../lib/privacy';
 
-export default function AppPrivacy(){
-  const router = useRouter();
-  const { slug } = router.query;
-  const app = apps.find((a) => a.slug === slug);
-  const policy = slug ? privacyPolicies[slug] : null;
-
+export default function AppPrivacy({ app, policy }){
   if (!app) {
     return (
       <div className="privacy-page">
@@ -78,4 +72,26 @@ export default function AppPrivacy(){
       </div>
     </div>
   );
+}
+
+export async function getStaticPaths(){
+  return {
+    paths: apps.map((app) => ({ params: { slug: app.slug } })),
+    fallback: false
+  };
+}
+
+export async function getStaticProps({ params }){
+  const app = apps.find((item) => item.slug === params.slug) || null;
+
+  if (!app) {
+    return { notFound: true };
+  }
+
+  return {
+    props: {
+      app,
+      policy: privacyPolicies[params.slug] || null
+    }
+  };
 }

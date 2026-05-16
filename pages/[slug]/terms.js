@@ -1,15 +1,9 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 import { apps } from '../../lib/data';
 import { terms } from '../../lib/terms';
 
-export default function AppTerms(){
-  const router = useRouter();
-  const { slug } = router.query;
-  const app = apps.find((a) => a.slug === slug);
-  const appTerms = slug ? terms[slug] : null;
-
+export default function AppTerms({ app, appTerms }){
   if (!app) {
     return (
       <div className="privacy-page">
@@ -99,4 +93,26 @@ export default function AppTerms(){
       </div>
     </div>
   );
+}
+
+export async function getStaticPaths(){
+  return {
+    paths: apps.map((app) => ({ params: { slug: app.slug } })),
+    fallback: false
+  };
+}
+
+export async function getStaticProps({ params }){
+  const app = apps.find((item) => item.slug === params.slug) || null;
+
+  if (!app) {
+    return { notFound: true };
+  }
+
+  return {
+    props: {
+      app,
+      appTerms: terms[params.slug] || null
+    }
+  };
 }

@@ -1,12 +1,8 @@
 import { useState } from 'react';
-import { useRouter } from 'next/router';
 import { apps } from '../../lib/data';
 
-export default function AppDetail(){
-  const router = useRouter();
+export default function AppDetail({ app }){
   const [previewImage, setPreviewImage] = useState(null);
-  const { slug } = router.query;
-  const app = apps.find(a => a.slug === slug) || apps[0];
 
   if (!app) {
     return null;
@@ -235,4 +231,25 @@ export default function AppDetail(){
       )}
     </div>
   )
+}
+
+export async function getStaticPaths(){
+  return {
+    paths: apps.map((app) => ({ params: { slug: app.slug } })),
+    fallback: false
+  };
+}
+
+export async function getStaticProps({ params }){
+  const app = apps.find((item) => item.slug === params.slug) || null;
+
+  if (!app) {
+    return { notFound: true };
+  }
+
+  return {
+    props: {
+      app
+    }
+  };
 }
